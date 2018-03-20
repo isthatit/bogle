@@ -1,0 +1,16 @@
+.name{
+    width: 10%
+
+}
+.text{
+    width: 70%
+}
+.send{
+    width: 5%
+}
+li.my{
+    text-align: right
+}
+li.sys{
+    text-align: center
+}

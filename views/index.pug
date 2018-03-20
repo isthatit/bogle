@@ -1,0 +1,26 @@
+extends layout
+
+
+block content
+  link(rel='stylesheet', href='/stylesheets/chat.css')
+  h1= title
+  p Welcome to #{title}
+
+  ul#messages
+  form(action="")
+    input#name(class="name", placeholder="닉네임")
+    input#m(autocomplete="off", class="text", placeholder="내용" )
+    button(class="send") Send
+    
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
+  script(src="../javascripts/index.js")
+  style(type='text/css').
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font: 13px Helvetica, Arial; }
+    form { background: #000; position: fixed; bottom: 0; width: 100%; }
+    
+    #messages { list-style-type: none; margin: 0; padding: 0; }
+    #messages li { padding: 5px 10px; }
+    #messages li:nth-child(odd) { background: #eee; }
+  
