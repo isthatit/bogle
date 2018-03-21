@@ -15,7 +15,7 @@
     height: 300px;
     max-height: 300px;
     overflow: auto;
-    background-color: cornflowerblue;
+    background-color:#b0c7d4;
 }
 li{
     list-style-type: none;
@@ -29,24 +29,32 @@ div.sys{
     text-align: center;
     clear: both;
 }
+
 div.msg{
     float: right;
     clear:both;
     margin: 1%;
     max-width: 40%;
-    background-color: gold;
+    background-color: #fee106;
     padding: 5px;
     border-radius: 1vh;
     font-size: 1.5em;
     word-wrap: break-word;
     
 }
+div.nickName{
+    float:left;
+    clear:both;
+    margin-top: 1%;
+ 
+ 
+}
 div.othermsg{
     float: left;
     clear:both;
-    margin: 1%;
+    margin: 0.3% 1% 1% 0%;
     max-width: 40%;
-    background-color: azure;
+    background-color: white;
     padding: 5px;
     border-radius: 1vh;
     font-size: 1.5em;

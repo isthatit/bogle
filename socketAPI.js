@@ -17,10 +17,7 @@ io.on('connection', function(socket){
 
         console.log(name, text);
         
-        
-        
-
-        socket.broadcast.emit('chat message', name+": "+text);
+        socket.broadcast.emit('chat message', {name:name, text:text});
       });
     socket.on('disconnect', function(){
         if(socket.name)io.emit('sys message', socket.name + ' 님이 퇴장하셨습니다.');

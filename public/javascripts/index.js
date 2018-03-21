@@ -53,11 +53,12 @@ function socketSetting(socket){
         
         return false;
     });
-    socket.on('chat message', function(msg){
-       var audio = new Audio('/sound/bogle.mp3');
-       audio.playbackRate = 2.5;
+    socket.on('chat message', function(msgObj){
+       var audio = new Audio('/sound/cotalk.mp3');
+       audio.playbackRate = 1.5;
        audio.play();
-       $('#messages').append($('<div class="othermsg"> ').text(msg)); //+msg+'</span>'));
+       $("#messages").append($('<div class="nickName">').text(msgObj.name));
+       $('#messages').append($('<div class="othermsg"> ').text(msgObj.text)); //+msg+'</span>'));
        $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
     });
     socket.on('sys message', function(msg){
