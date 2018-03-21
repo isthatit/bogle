@@ -12,10 +12,10 @@ block content
       //- input#name(class="name", placeholder="닉네임")
       div(class="input-group mb-3")
         div(class="input-group-append")
-          input#nickName(type="text" disabled) 
+          input#nickName(type="text", autocomplete="off") 
         input#msg(autocomplete="off", type="text", class="form-control", placeholder="내용을 작성해주세요", aria-describedby="basic-addon2")
         div(class="input-group-append")
-          button#sendBtn(class="btn btn-outline-secondary btn-light") Send
+          button#sendBtn(class="btn btn-outline-secondary btn-light" disabled) Send
         
       
     

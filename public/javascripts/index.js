@@ -14,6 +14,12 @@ function getUserName(){
     return null;
 }
 
+function changeNickName(){
+    
+    
+    //$("#input_username").val(username.getName);
+}
+
 function setUserName(username){
     document.cookie = "username="+username+";";
 }
@@ -111,5 +117,13 @@ $(function () {
         socket = io();
         socketSetting(socket);
     }
-    
+
+    $("#nickName").on("change",()=>{
+        var tmpName = $("#nickName").val();
+        if(tmpName != username.getName){
+            var origin = username.getName();
+            username.setName(tmpName);
+            socket.emit('change nick', {origin:origin, post:tmpName});
+        }
+    });
 });

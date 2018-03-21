@@ -28,6 +28,10 @@ io.on('connection', function(socket){
     socket.on('login',(name)=>{
         io.emit('sys message', name+' 님이 입장하셨습니다.');
     });
+    socket.on('change nick',(obj)=>{
+        io.emit('sys message', obj.origin+' 님의 닉네임이 '+obj.post+'으로 변경 되었습니다.');
+
+    });
 });
 
 socketAPI.sendNotification = function() {
