@@ -29,6 +29,7 @@ var username = {
 }
 
 function socketSetting(socket){
+    socket.emit('login', username.getName());
     $('form').submit(function(){
         
         var text = $("#msg").val();
@@ -49,10 +50,12 @@ function socketSetting(socket){
        audio.playbackRate = 2.5;
        audio.play();
        $('#messages').append($('<li>').html('<span class="othermsg">'+msg+'</span>'));
+       $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
     });
     socket.on('sys message', function(msg){
         console.log(msg);
        $('#messages').append($('<li class="sys">').text(msg));
+       $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
 
     });
 
@@ -88,7 +91,7 @@ $(function () {
                 $("#setUsername").click();
             }
         });
-        
+
         $("#setUsername").on("click",()=>{
             var tmpName = $("#input_username").val();
             if(tmpName.trim().length == 0){

@@ -19,6 +19,11 @@ io.on('connection', function(socket){
         console.log('user disconnected');
         io.emit('sys message', socket.name + ' 님이 퇴장하셨습니다.');
       });
+    socket.on('login',(name)=>{
+
+        io.emit('sys message', name+' 님이 입장하셨습니다.');
+
+    });
 });
 
 socketAPI.sendNotification = function() {
