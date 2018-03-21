@@ -54,7 +54,7 @@ function socketSetting(socket){
     });
     socket.on('sys message', function(msg){
         console.log(msg);
-       $('#messages').append($('<li class="sys">').text(msg));
+       $('#messages').append($('<div class="sys">').text(msg));
        $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
 
     });

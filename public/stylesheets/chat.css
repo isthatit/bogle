@@ -25,8 +25,9 @@ li.my{
     
     text-align: right
 }
-li.sys{
-    text-align: center
+div.sys{
+    text-align: center;
+    clear: both;
 }
 div.msg{
     float: right;
