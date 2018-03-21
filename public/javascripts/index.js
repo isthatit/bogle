@@ -36,7 +36,7 @@ function socketSetting(socket){
         var name = username.getName();
         var msg = {name: name, text:text}
         socket.emit('chat message', msg);
-        $('#messages').append($('<li class="my">').html('<span class="msg">'+text+'</span>'));
+        $('#messages').append($('<div class="msg">').text(text));
         $('#msg').val('');
         $("#sendBtn").attr("disabled", "true");
         $("#sendBtn").removeClass("btn-warning");
@@ -49,7 +49,7 @@ function socketSetting(socket){
        var audio = new Audio('/sound/bogle.mp3');
        audio.playbackRate = 2.5;
        audio.play();
-       $('#messages').append($('<li>').html('<span class="othermsg">'+msg+'</span>'));
+       $('#messages').append($('<div class="othermsg"> ').text(msg)); //+msg+'</span>'));
        $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
     });
     socket.on('sys message', function(msg){

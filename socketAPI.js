@@ -9,11 +9,15 @@ io.on('connection', function(socket){
     console.log('A user connected');
 
     socket.on('chat message', function(msg){
-        console.log('message: ' + msg.name+":"+msg.text);
+        
         console.log(socket.id);
         socket.name=msg.name;
-        var name = msg.name.replace('<','&gt').replace('>','&lt');
-        var text = msg.text.replace('<','&gt').replace('>','&lt');
+        var name = msg.name.replace('>','&gt').replace('<','&lt');
+        var text = msg.text.replace('>','&gt').replace('<','&lt');
+
+        console.log(name, text);
+        
+        
         
 
         socket.broadcast.emit('chat message', name+": "+text);

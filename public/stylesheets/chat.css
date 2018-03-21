@@ -12,6 +12,7 @@
     height: 100%;
 }
 #messageArea{
+    height: 300px;
     max-height: 300px;
     overflow: auto;
     background-color: cornflowerblue;
@@ -27,16 +28,26 @@ li.my{
 li.sys{
     text-align: center
 }
-span.msg{
+div.msg{
+    float: right;
+    clear:both;
+    margin: 1%;
+    max-width: 40%;
     background-color: gold;
-    padding: 1px 3px 1px 3px;
+    padding: 5px;
     border-radius: 1vh;
     font-size: 1.5em;
     word-wrap: break-word;
+    
 }
-span.othermsg{
+div.othermsg{
+    float: left;
+    clear:both;
+    margin: 1%;
+    max-width: 40%;
     background-color: azure;
-    padding: 1px 3px 1px 3px;
-    border-radius: 10%;
+    padding: 5px;
+    border-radius: 1vh;
     font-size: 1.5em;
+    word-wrap: break-word;
 }
