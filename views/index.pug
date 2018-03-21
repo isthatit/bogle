@@ -5,22 +5,44 @@ block content
   link(rel='stylesheet', href='/stylesheets/chat.css')
   h1= title
   p Welcome to #{title}
-
-  ul#messages
-  form(action="")
-    input#name(class="name", placeholder="닉네임")
-    input#m(autocomplete="off", class="text", placeholder="내용" )
-    button(class="send") Send
+  div#chatArea
+    div#messageArea
+      ul#messages
+    form(action="")
+      //- input#name(class="name", placeholder="닉네임")
+      div(class="input-group mb-3")
+        input#msg(autocomplete="off", type="text", class="form-control", placeholder="Recipient's username", aria-label="Recipient's username", aria-describedby="basic-addon2")
+        div(class="input-group-append")
+        button#sendBtn(class="btn btn-outline-secondary btn-light") Send
+        
+      
     
-  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  //- Modal
+  div(class="modal fade", id="myModal", role="dialog")
+    div(class="modal-dialog")
+    
+      //- Modal Content
+      div(class="modal-content")
+        div(class="modal-header")
+          
+          h4(class="modal-title") 닉네임 설정
+        div(class="modal-body")
+          div(class="input-group mb-3")
+            input#input_username(autocomplete="off", type="text", class="form-control", placeholder="닉네임을 입력해주세요", aria-label="", aria-describedby="basic-addon2")
+            div(class="input-group-append")
+            button#setUsername(class="btn btn-outline-secondary btn-light") 확인
+        
+        div(class="modal-footer")
+          
+        
+      
+      
+    
+    
+
+
+    
+  
   script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
   script(src="../javascripts/index.js")
-  style(type='text/css').
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font: 13px Helvetica, Arial; }
-    form { background: #000; position: fixed; bottom: 0; width: 100%; }
     
-    #messages { list-style-type: none; margin: 0; padding: 0; }
-    #messages li { padding: 5px 10px; }
-    #messages li:nth-child(odd) { background: #eee; }
-  

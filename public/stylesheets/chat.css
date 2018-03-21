@@ -8,9 +8,34 @@
 .send{
     width: 5%
 }
+#chatArea{
+    height: 100%;
+}
+#messageArea{
+    max-height: 300px;
+    overflow: auto;
+    background-color: cornflowerblue;
+}
+li{
+    list-style-type: none;
+    margin: 6px;
+}
 li.my{
+    
     text-align: right
 }
 li.sys{
     text-align: center
+}
+span.msg{
+    background-color: gold;
+    padding: 1px 3px 1px 3px;
+    border-radius: 10%;
+    font-size: 1.5em;
+}
+span.othermsg{
+    background-color: azure;
+    padding: 1px 3px 1px 3px;
+    border-radius: 10%;
+    font-size: 1.5em;
 }
