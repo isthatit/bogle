@@ -6,6 +6,7 @@ function getUserName(){
         
         cookies[i].trim();
         if(cookies[i].indexOf("username=")==0){
+            
             return cookies[i].substring("username=".length, cookies[i].length);
 
         }
@@ -14,16 +15,17 @@ function getUserName(){
 }
 
 function setUserName(username){
-    document.cookies = "username="+username+";";
-    console.log('coockie.done');
+    document.cookie = "username="+username+";";
 }
 var username = {
     name : getUserName(),
     getName : function(){
+        $("#nickName").val(this.name);
         return this.name;
     },
     setName : function(tmpName){
         this.name = tmpName;
+        $("#nickName").val(this.name);
         setUserName(this.name);
     }
 }
@@ -84,7 +86,6 @@ $(function () {
     var name = username.getName();
     console.log('name', name);
     if(name == null){
-        console.log('hello?');
         $('#myModal').modal();
         $("#input_username").keyup((event) => {
             if (event.keyCode === 13) {
