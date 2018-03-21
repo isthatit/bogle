@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   sess = req.session;
   console.log('test'+sess.name);
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Bogle Chat' });
 });
 
 module.exports = router;
