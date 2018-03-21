@@ -12,10 +12,11 @@ io.on('connection', function(socket){
         console.log('message: ' + msg.name+":"+msg.text);
         console.log(socket.id);
         socket.name=msg.name;
+        var name = msg.name.replace('<','&gt').replace('>','&lt');
         var text = msg.text.replace('<','&gt').replace('>','&lt');
         
 
-        socket.broadcast.emit('chat message', msg.name+": "+msg.text);
+        socket.broadcast.emit('chat message', name+": "+text);
       });
     socket.on('disconnect', function(){
         console.log('user disconnected');
