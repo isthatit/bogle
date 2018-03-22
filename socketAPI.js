@@ -4,11 +4,10 @@ var socketAPI = {};
 
 socketAPI.io = io;
 
+var userNo = 0;
 
 io.on('connection', function(socket){
-    console.log('A user connected');
-    console.log(socket.id);
-
+    
     socket.on('chat message', function(msg){
         
         
@@ -21,13 +20,19 @@ io.on('connection', function(socket){
         socket.broadcast.emit('chat message', {name:name, text:text});
       });
     socket.on('disconnect', function(){
-        if(socket.name)io.emit('sys message', socket.name + ' 님이 퇴장하셨습니다.');
+        console.log(socket.name);
+        if(socket.name){
+            userNo--;
+            io.emit('sys message', {msg: socket.name + ' 님이 퇴장하셨습니다.', userNo:userNo});
+        }
       });
     socket.on('login',(name)=>{
-        io.emit('sys message', name+' 님이 입장하셨습니다.');
+        userNo++;
+        socket.name = name;
+        io.emit('sys message',{msg: name+' 님이 입장하셨습니다.',userNo:userNo});
     });
     socket.on('change nick',(obj)=>{
-        io.emit('sys message', obj.origin+' 님의 닉네임이 '+obj.post+'으로 변경 되었습니다.');
+        io.emit('sys message', {msg:obj.origin+' 님의 닉네임이 '+obj.post+'으로 변경 되었습니다.', userNo:userNo});
 
     });
 });

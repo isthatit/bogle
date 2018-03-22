@@ -14,11 +14,6 @@ function getUserName(){
     return null;
 }
 
-function changeNickName(){
-    
-    
-    //$("#input_username").val(username.getName);
-}
 
 function setUserName(username){
     document.cookie = "username="+username+";";
@@ -62,9 +57,9 @@ function socketSetting(socket){
        $('#messages').append($('<div class="othermsg"> ').text(msgObj.text)); //+msg+'</span>'));
        $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
     });
-    socket.on('sys message', function(msg){
-        console.log(msg);
-       $('#messages').append($('<div class="sys">').text(msg));
+    socket.on('sys message', function(obj){
+       $('#messages').append($('<div class="sys">').text(obj.msg));
+       $("#userNo").text(obj.userNo);
        $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
 
     });
@@ -92,7 +87,6 @@ $(function () {
 
     var socket;
     var name = username.getName();
-    console.log('name', name);
     if(name == null){
         $('#myModal').modal();
         $("#input_username").keyup((event) => {
