@@ -7,10 +7,11 @@ socketAPI.io = io;
 
 io.on('connection', function(socket){
     console.log('A user connected');
+    console.log(socket.id);
 
     socket.on('chat message', function(msg){
         
-        console.log(socket.id);
+        
         socket.name=msg.name;
         var name = msg.name.replace('>','&gt').replace('<','&lt');
         var text = msg.text.replace('>','&gt').replace('<','&lt');

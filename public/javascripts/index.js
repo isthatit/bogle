@@ -57,7 +57,8 @@ function socketSetting(socket){
        var audio = new Audio('/sound/cotalk.mp3');
        audio.playbackRate = 1.5;
        audio.play();
-       $("#messages").append($('<div class="nickName">').text(msgObj.name));
+       var lastChild = $("#messages div:last-child").attr('class');
+       if(lastChild != "othermsg")$("#messages").append($('<div class="nickName">').text(msgObj.name));
        $('#messages').append($('<div class="othermsg"> ').text(msgObj.text)); //+msg+'</span>'));
        $("#messageArea").scrollTop($("#messageArea")[0].scrollHeight);
     });
