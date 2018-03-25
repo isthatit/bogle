@@ -8,8 +8,7 @@ var userNo = 0;
 
 io.on('connection', function(socket){
     
-    socket.on('chat message', function(msg){
-        
+    socket.on('chat message',(msg)=>{        
         
         socket.name=msg.name;
         var name = msg.name.replace('>','&gt').replace('<','&lt');
@@ -19,7 +18,7 @@ io.on('connection', function(socket){
         
         socket.broadcast.emit('chat message', {name:name, text:text});
       });
-    socket.on('disconnect', function(){
+    socket.on('disconnect', ()=>{
         console.log(socket.name);
         if(socket.name){
             userNo--;
@@ -37,7 +36,7 @@ io.on('connection', function(socket){
     });
 });
 
-socketAPI.sendNotification = function() {
+socketAPI.sendNotification = () => {
     io.sockets.emit('hello', {msg: 'Hello World!'});
 }
 
